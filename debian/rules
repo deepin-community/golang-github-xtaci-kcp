@@ -1,4 +1,12 @@
 #!/usr/bin/make -f
 
+# examples/ folder is not for build, but just for docs
+export DH_GOLANG_EXCLUDES := examples
+
+override_dh_auto_test:
+ifeq ($(filter nocheck, $(DEB_BUILD_OPTIONS)),)
+	ulimit -n 2048 && dh_auto_test
+endif
+
 %:
-	dh $@
+	dh $@ --buildsystem=golang --with=golang

@@ -1,5 +1,201 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-github-xtaci-kcp (5.6.1-2) unstable; urgency=medium
 
-  * Initial release
+  [ Roger Shimizu ]
+  * Team upload.
+  * d/rules: Add nocheck condition to dh_auto_test
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+  [ Nilesh Patra ]
+  * d/control:
+    + B-D and Depend on golang-github-templexxx-xorsimd
+      instead of golang-github-templexxx-xor
+    + Bump Standards-Version to 4.6.1 (no changes needed)
+    + Bump debhelper compatibility level to 13
+    + Change section to golang from devel
+  * d/patches:
+    + Drop 02-Revert-Squashed-commit-of-the-following.patch
+      and 03-Revert-Update-Lib-xor-xorsimd-slight-perf-improvemen.patch
+      - These patches were made in order to templexxx-xor instead of
+        templexxx-xorsimd since the latter was not in the archive.
+        Now that this is accepted, these patches are no longer needed.
+  * Enchance d/u/metadata and remove "Homepage" field which seems unknown
+  * d/copyright: Update copyr year
+  * d/watch: Remove un-needed uupdate
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster:
+    + Build-Depends: Drop versioned constraint on dh-golang and
+      golang-github-klauspost-reedsolomon-dev.
+    + golang-github-xtaci-kcp-dev: Drop versioned constraint on
+      golang-github-klauspost-reedsolomon-dev in Depends.
+
+ -- Nilesh Patra <nilesh@debian.org>  Sat, 06 Aug 2022 23:03:26 +0530
+
+golang-github-xtaci-kcp (5.6.1-1) unstable; urgency=medium
+
+  * New upstream version 5.6.1
+  * debian/patches:
+    - Refresh patches.
+  * debian/control:
+    - Add new B-D: golang-github-stretchr-testify-dev
+
+ -- Roger Shimizu <rosh@debian.org>  Sat, 07 Nov 2020 22:42:11 +0900
+
+golang-github-xtaci-kcp (5.5.17-1) unstable; urgency=medium
+
+  * New upstream version 5.5.17
+
+ -- Roger Shimizu <rosh@debian.org>  Sun, 04 Oct 2020 22:42:13 +0900
+
+golang-github-xtaci-kcp (5.5.15-1) unstable; urgency=low
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Submit.
+
+  [ Roger Shimizu ]
+  * New upstream version 5.5.15
+
+ -- Roger Shimizu <rosh@debian.org>  Mon, 14 Sep 2020 01:45:40 +0900
+
+golang-github-xtaci-kcp (5.5.14-1) unstable; urgency=medium
+
+  * New upstream version 5.5.14
+  * Remove d/maint-tools since we don't repack anymore.
+
+ -- Roger Shimizu <rosh@debian.org>  Sat, 04 Jul 2020 23:11:13 +0900
+
+golang-github-xtaci-kcp (5.5.12-1) unstable; urgency=medium
+
+  * New upstream version 5.5.12
+  * debian/control and debian/copyright:
+    - Update to use my debian email.
+  * debian/control:
+    - Bump debhelper version to 12.
+    - Bump policy version to 4.5.0
+  * Add debian/upstream/metadata
+  * debian/patches:
+    - Revert 2 patches in upstream to avoid using xorsimd which is not
+      in Debian yet: [e0b4e0b], and [56f3bfc].
+  * debian/docs:
+    - Add examples/ folder.
+
+ -- Roger Shimizu <rosh@debian.org>  Wed, 22 Apr 2020 00:03:44 +0900
+
+golang-github-xtaci-kcp (5.4.4-1) unstable; urgency=medium
+
+  * New upstream release, v5.4.4
+  * debian/patches:
+    - 0001: Revert a commit to reduce the lib dependency for the test
+      program.
+
+ -- Roger Shimizu <rogershimizu@gmail.com>  Sun, 25 Aug 2019 02:49:09 +0900
+
+golang-github-xtaci-kcp (5.3.9-1) unstable; urgency=medium
+
+  * New upstream release, v5.3.9
+  * debian/rules:
+    - Do not build examples/ folder.
+
+ -- Roger Shimizu <rogershimizu@gmail.com>  Sat, 24 Aug 2019 00:52:37 +0900
+
+golang-github-xtaci-kcp (5.0.7-1) unstable; urgency=medium
+
+  * New upstream release, v5.0.7
+  * debian/watch:
+    - Update orig tarball name same as pristine-tar branch.
+
+ -- Roger Shimizu <rogershimizu@gmail.com>  Thu, 10 Jan 2019 01:45:52 +0200
+
+golang-github-xtaci-kcp (4.0-1) unstable; urgency=medium
+
+  * New upstream release, v4.0.
+
+ -- Roger Shimizu <rogershimizu@gmail.com>  Fri, 31 Aug 2018 00:06:27 +0900
+
+golang-github-xtaci-kcp (3.25-1) unstable; urgency=medium
+
+  [ Alexandre Viau ]
+  * Point Vcs-* urls to salsa.debian.org.
+
+  [ Michael Stapelberg ]
+  * Add debian/gitlab-ci.yml (using salsa.debian.org/go-team/ci/cmd/ci).
+
+  [ Roger Shimizu ]
+  * New upstream release.
+  * debian/copyright:
+    - Remove non-existing file from Files-Excluded list.
+    - Remove non-existing entries (xor.go, and xor_test.go).
+  * debian/watch:
+    - Update since there's no need to repack anymore.
+
+ -- Roger Shimizu <rogershimizu@gmail.com>  Sun, 26 Aug 2018 16:36:01 +0900
+
+golang-github-xtaci-kcp (3.23-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Add new dependencies:
+    - golang-github-templexxx-xor-dev
+    - golang-github-tjfoc-gmsm-dev
+
+ -- Alexandre Viau <aviau@debian.org>  Thu, 28 Dec 2017 17:30:18 -0500
+
+golang-github-xtaci-kcp (3.18+ds-2) unstable; urgency=medium
+
+  * debian/watch:
+    - Change filenamemangle to match with the filename in archive.
+  * Remove debian/source.lintian-overrides, since it's unused.
+  * debian/control:
+    - Set Testsuite to autopkgtest-pkg-go.
+    - Bump Build-Depends version of dh-golang to 1.19, which is
+      in jessie bpo.
+    - Bump Priority of this package from extra to optional.
+      Priority extra is removed, based on latest policy.
+    - Bump up standards version to 4.1.1 (with changes above).
+
+ -- Roger Shimizu <rogershimizu@gmail.com>  Mon, 16 Oct 2017 22:21:15 +0900
+
+golang-github-xtaci-kcp (3.18+ds-1) unstable; urgency=medium
+
+  * New upstream release 3.18
+  * debian/patches:
+    - Remove all backported patches.
+
+ -- Roger Shimizu <rogershimizu@gmail.com>  Thu, 29 Jun 2017 00:39:47 +0900
+
+golang-github-xtaci-kcp (3.15+ds-1) unstable; urgency=medium
+
+  * Team upload.
+  * First upload to unstable.
+
+ -- Alexandre Viau <aviau@debian.org>  Mon, 19 Jun 2017 00:53:23 -0400
+
+golang-github-xtaci-kcp (3.15+ds-1~exp1) experimental; urgency=medium
+
+  * New upstream release 3.15
+  * debian/control:
+    - Sync Depends with Build-Depends.
+    - Update package description.
+  * debian/docs:
+    - Add README.md
+  * debian/patches:
+    - Backport a few upstream patches after v3.15.
+
+ -- Roger Shimizu <rogershimizu@gmail.com>  Sat, 13 May 2017 15:56:15 +0900
+
+golang-github-xtaci-kcp (3.13+ds-1~exp1) experimental; urgency=medium
+
+  * New upstream release 3.13
+  * debian/control:
+    - Build-Depends golang-github-klauspost-reedsolomon-dev (>= 1.3),
+      because we use its advanced options feature since v1.3.
+  * debian/rules:
+    - One test need to open over 1024 files, so add line for 'ulimit -n'
+      before dh_auto_test.
+
+ -- Roger Shimizu <rogershimizu@gmail.com>  Thu, 30 Mar 2017 22:56:15 +0900
+
+golang-github-xtaci-kcp (2.14+git20170120+ds-1~exp1) experimental; urgency=medium
+
+  * Initial release (Closes: 852956)
+
+ -- Roger Shimizu <rogershimizu@gmail.com>  Mon, 13 Feb 2017 00:11:03 +0900
