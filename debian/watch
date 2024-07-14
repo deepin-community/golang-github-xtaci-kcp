@@ -1,0 +1,5 @@
+version=4
+
+opts="filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/golang-github-xtaci-kcp_$1.orig.tar.gz/, \
+   uversionmangle=s/(\d)[_\.\-\+]?(RC|rc|pre|dev|beta|alpha)[.]?(\d*)$/$1~$2$3/" \
+   https://github.com/xtaci/kcp-go/tags .*/v?(\d\S*)\.tar\.gz
